@@ -1,0 +1,48 @@
+﻿@using TrelloKubra.Models.Entities,
+@model List<tbl_GorevDurumlari>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/KullaniciLayout.cshtml";
+}
+
+<div style="margin-top:20px; margin-bottom:20px; margin-left:20px; margin-right:20px;">
+
+    <h2>GÖREV DURUMLARI</h2>
+    
+    <table class="table table-striped">
+        <tr>
+            <th>ID</th>
+            <th>GÖREV</th>
+            <th>DURUM</th>
+            <th>AÇIKLAMA</th>
+            <th>TARİH</th>
+            <th>KULLANICI</th>
+            <th>YAPILACAK İŞ 1</th>
+            <th>YAPILACAK İŞ 2</th>
+            <th>YAPILACAK İŞ 3</th>
+            <th>YAPILACAK İŞ 4</th>
+            <th>SİL</th>
+            <th>GÜNCELLE</th>
+        </tr>
+        @foreach (var k in Model)
+        {
+            <tr>
+                <td>@k.GorevDurumId</td>
+                <td>@k.tbl_Gorevler.GorevAdi</td>
+                <td>@k.tbl_Durum.DurumAd</td>
+                <td>@k.Aciklama</td>
+                <td>@k.GorevDurumTarihi</td>
+                <td>@k.tbl_Kullanicilar.Ad&nbsp;@k.tbl_Kullanicilar.Soyad</td>
+                <td>@k.Yapilacakis1</td>
+                <td>@k.Yapilacakis2</td>
+                <td>@k.Yapilacakis3</td>
+                <td>@k.Yapilacakis4</td>
+                <td><a href="/GorevDurum/GorevDurumSil/@k.GorevDurumId" class="btn btn-danger">Sil</a></td>
+                <td><a href="/GorevDurum/GorevDurumGetir/@k.GorevDurumId" class="btn btn-success">Güncelle</a></td>
+            </tr>
+        }
+    </table>
+    <a href="/GorevDurum/GorevDurumEkle/" class="btn btn-primary">Görev Durum Ekle</a>
+
+</div>
+

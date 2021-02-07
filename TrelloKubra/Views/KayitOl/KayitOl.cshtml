@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "KayitOl";
+    Layout = "~/Views/Shared/AnaLayout.cshtml";
+}
+
+<script src="~/Templates/login/dist/script.js"></script>
+<link href="~/Templates/login/dist/style.css" rel="stylesheet" />
+<div class="wrapper">
+    <div class="sign-panels">
+
+        <div class="signup">
+            <div class="title">
+                <span>Kayıt Ol</span>
+
+            </div>
+
+            <br />
+
+            <div>
+                <form method="POST" class="register-form" id="register-form">
+                    <div class="form-group">
+                        <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                        <input type="text" name="Ad" id="name" placeholder="Adınız" />
+                    </div>
+                    <div class="form-group">
+                        <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                        <input type="text" name="Soyad" id="name" placeholder="Soyadınız" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><i class="zmdi zmdi-email"></i></label>
+                        <input type="email" name="Mail" id="email" placeholder="Email" />
+                    </div>
+                    <div class="form-group">
+                        <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                        <input type="text" name="KullaniciAdi" id="name" placeholder="Kullanıcı Adınız" />
+                    </div>
+                    <div class="form-group">
+                        <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                        <input type="password" name="Sifre" id="pass" placeholder="Şifreniz" />
+                    </div>
+                    <div class="form-group form-button" >
+                        <input type="submit" name="signup"  style="background: #ec581e; color: white" id="signup" class="form-submit" value="Kayıt Ol" />
+                    </div>
+                    <a href="/GirisYap/GirisYap/" class="signup-image-link">Ben zaten üyeyim</a>
+                    <a href="/Anasayfa/Index/" class="signup-image-link">Anasayfaya Dön</a>
+                </form>
+            </div>
+           
+        </div>
+
+
+    </div>
+</div>
+

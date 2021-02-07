@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "GirisYap";
+    Layout = "~/Views/Shared/AnaLayout.cshtml";
+}
+
+<script src="~/Templates/login/dist/script.js"></script>
+<link href="~/Templates/login/dist/style.css" rel="stylesheet" />
+<div class="wrapper">
+
+    <div class="sign-panels">
+        <div class="login">
+            <div class="title">
+                <span>Giriş Yap</span>
+
+            </div>
+
+
+            <br />
+
+            
+            @using (Html.BeginForm("GirisYap", "GirisYap", FormMethod.Post))
+            {
+                <div class="form-group">
+                    <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                    <input type="text" name="KullaniciAdi" id="your_name" placeholder="Kullanıcı Adınız" />
+                </div>
+                <div class="form-group">
+                    <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
+                    <input type="password" name="Sifre" id="your_pass" placeholder="Şifreniz" />
+                </div>
+                <div class="form-group form-button" >
+                    <input type="submit" name="signin" style="background: #ec581e; color: white" id="signin" class="form-submit" value="Giriş Yap" />
+                </div>
+            }
+            <a href="/KayitOl/KayitOl/" >Kayıt Ol</a>
+            <a href="/Anasayfa/Index/" >Anasayfaya Dön</a>
+        </div>
+
+
+
+    </div>
+</div>
+
+

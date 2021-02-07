@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbTrelloModelStoreContainer" CdmEntityContainer="dbTrelloEntities">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="dbTrelloModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Durum">
+      <EntityTypeMapping TypeName="dbTrelloModel.tbl_Durum">
+        <MappingFragment StoreEntitySet="tbl_Durum">
+          <ScalarProperty Name="DurumId" ColumnName="DurumId" />
+          <ScalarProperty Name="DurumAd" ColumnName="DurumAd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_GorevDurumlari">
+      <EntityTypeMapping TypeName="dbTrelloModel.tbl_GorevDurumlari">
+        <MappingFragment StoreEntitySet="tbl_GorevDurumlari">
+          <ScalarProperty Name="GorevDurumId" ColumnName="GorevDurumId" />
+          <ScalarProperty Name="GorevId" ColumnName="GorevId" />
+          <ScalarProperty Name="DurumId" ColumnName="DurumId" />
+          <ScalarProperty Name="KullaniciId" ColumnName="KullaniciId" />
+          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+          <ScalarProperty Name="GorevDurumTarihi" ColumnName="GorevDurumTarihi" />
+          <ScalarProperty Name="Yapilacakis1" ColumnName="Yapilacakis1" />
+          <ScalarProperty Name="Yapilacakis2" ColumnName="Yapilacakis2" />
+          <ScalarProperty Name="Yapilacakis3" ColumnName="Yapilacakis3" />
+          <ScalarProperty Name="Yapilacakis4" ColumnName="Yapilacakis4" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Gorevler">
+      <EntityTypeMapping TypeName="dbTrelloModel.tbl_Gorevler">
+        <MappingFragment StoreEntitySet="tbl_Gorevler">
+          <ScalarProperty Name="GorevId" ColumnName="GorevId" />
+          <ScalarProperty Name="GorevAdi" ColumnName="GorevAdi" />
+          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+          <ScalarProperty Name="Notlar" ColumnName="Notlar" />
+          <ScalarProperty Name="GorevTarihi" ColumnName="GorevTarihi" />
+          <ScalarProperty Name="TahminiTarih" ColumnName="TahminiTarih" />
+          <ScalarProperty Name="GerceklesenTarih" ColumnName="GerceklesenTarih" />
+          <ScalarProperty Name="DurumId" ColumnName="DurumId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Kullanicilar">
+      <EntityTypeMapping TypeName="dbTrelloModel.tbl_Kullanicilar">
+        <MappingFragment StoreEntitySet="tbl_Kullanicilar">
+          <ScalarProperty Name="KullaniciId" ColumnName="KullaniciId" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+          <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

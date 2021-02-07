@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbTrelloModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tbl_Durum">
+    <Key>
+      <PropertyRef Name="DurumId" />
+    </Key>
+    <Property Name="DurumId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DurumAd" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="tbl_GorevDurumlari">
+    <Key>
+      <PropertyRef Name="GorevDurumId" />
+    </Key>
+    <Property Name="GorevDurumId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GorevId" Type="int" />
+    <Property Name="DurumId" Type="int" />
+    <Property Name="KullaniciId" Type="int" />
+    <Property Name="Aciklama" Type="nvarchar(max)" />
+    <Property Name="GorevDurumTarihi" Type="date" />
+    <Property Name="Yapilacakis1" Type="nvarchar" MaxLength="150" />
+    <Property Name="Yapilacakis2" Type="nvarchar" MaxLength="150" />
+    <Property Name="Yapilacakis3" Type="nvarchar" MaxLength="150" />
+    <Property Name="Yapilacakis4" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="tbl_Gorevler">
+    <Key>
+      <PropertyRef Name="GorevId" />
+    </Key>
+    <Property Name="GorevId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GorevAdi" Type="nvarchar" MaxLength="150" />
+    <Property Name="Aciklama" Type="nvarchar(max)" />
+    <Property Name="Notlar" Type="nvarchar(max)" />
+    <Property Name="GorevTarihi" Type="date" />
+    <Property Name="TahminiTarih" Type="date" />
+    <Property Name="GerceklesenTarih" Type="date" />
+    <Property Name="DurumId" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_Kullanicilar">
+    <Key>
+      <PropertyRef Name="KullaniciId" />
+    </Key>
+    <Property Name="KullaniciId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="nvarchar" MaxLength="50" />
+    <Property Name="Soyad" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mail" Type="nvarchar" MaxLength="150" />
+    <Property Name="KullaniciAdi" Type="nvarchar" MaxLength="20" />
+    <Property Name="Sifre" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK_tbl_GorevDurumlari_tbl_Durum">
+    <End Role="tbl_Durum" Type="Self.tbl_Durum" Multiplicity="0..1" />
+    <End Role="tbl_GorevDurumlari" Type="Self.tbl_GorevDurumlari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Durum">
+        <PropertyRef Name="DurumId" />
+      </Principal>
+      <Dependent Role="tbl_GorevDurumlari">
+        <PropertyRef Name="DurumId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_GorevDurumlari_tbl_Gorevler">
+    <End Role="tbl_Gorevler" Type="Self.tbl_Gorevler" Multiplicity="0..1" />
+    <End Role="tbl_GorevDurumlari" Type="Self.tbl_GorevDurumlari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Gorevler">
+        <PropertyRef Name="GorevId" />
+      </Principal>
+      <Dependent Role="tbl_GorevDurumlari">
+        <PropertyRef Name="GorevId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_GorevDurumlari_tbl_Kullanicilar">
+    <End Role="tbl_Kullanicilar" Type="Self.tbl_Kullanicilar" Multiplicity="0..1" />
+    <End Role="tbl_GorevDurumlari" Type="Self.tbl_GorevDurumlari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Kullanicilar">
+        <PropertyRef Name="KullaniciId" />
+      </Principal>
+      <Dependent Role="tbl_GorevDurumlari">
+        <PropertyRef Name="KullaniciId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Gorevler_tbl_Durum">
+    <End Role="tbl_Durum" Type="Self.tbl_Durum" Multiplicity="0..1" />
+    <End Role="tbl_Gorevler" Type="Self.tbl_Gorevler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Durum">
+        <PropertyRef Name="DurumId" />
+      </Principal>
+      <Dependent Role="tbl_Gorevler">
+        <PropertyRef Name="DurumId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dbTrelloModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Durum" EntityType="Self.tbl_Durum" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_GorevDurumlari" EntityType="Self.tbl_GorevDurumlari" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Gorevler" EntityType="Self.tbl_Gorevler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Kullanicilar" EntityType="Self.tbl_Kullanicilar" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tbl_GorevDurumlari_tbl_Durum" Association="Self.FK_tbl_GorevDurumlari_tbl_Durum">
+      <End Role="tbl_Durum" EntitySet="tbl_Durum" />
+      <End Role="tbl_GorevDurumlari" EntitySet="tbl_GorevDurumlari" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_GorevDurumlari_tbl_Gorevler" Association="Self.FK_tbl_GorevDurumlari_tbl_Gorevler">
+      <End Role="tbl_Gorevler" EntitySet="tbl_Gorevler" />
+      <End Role="tbl_GorevDurumlari" EntitySet="tbl_GorevDurumlari" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_GorevDurumlari_tbl_Kullanicilar" Association="Self.FK_tbl_GorevDurumlari_tbl_Kullanicilar">
+      <End Role="tbl_Kullanicilar" EntitySet="tbl_Kullanicilar" />
+      <End Role="tbl_GorevDurumlari" EntitySet="tbl_GorevDurumlari" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Gorevler_tbl_Durum" Association="Self.FK_tbl_Gorevler_tbl_Durum">
+      <End Role="tbl_Durum" EntitySet="tbl_Durum" />
+      <End Role="tbl_Gorevler" EntitySet="tbl_Gorevler" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

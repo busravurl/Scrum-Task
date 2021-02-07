@@ -1,0 +1,47 @@
+﻿@model TrelloKubra.Models.Entities.tbl_Gorevler
+@{
+    ViewBag.Title = "GorevEkle";
+    Layout = "~/Views/Shared/KullaniciLayout.cshtml";
+}
+
+
+
+<div class="container-contact100">
+    <div class="wrap-contact100">
+        <form action="/Gorev/GorevEkle/" method="post" class="contact100-form validate-form">
+            <span class="contact100-form-title">
+                Görev Ekle
+            </span>
+            <br />
+            <label>Görev Adı</label>
+            @Html.TextBoxFor(k => k.GorevAdi, new { @class = "form-control" })
+            <br />
+            <label>Açıklama</label>
+            @Html.TextAreaFor(k => k.Aciklama, new { @class = "form-control" })
+            <br />
+            <label>Notlar</label>
+            @Html.TextAreaFor(k => k.Notlar, new { @class = "form-control" })
+            <br />
+            <label>Tarih</label>
+            @Html.TextBoxFor(k => k.GorevTarihi, "{0: dd.MM.yyyy}", new { @class = "form-control" })
+            <br />
+            <label>Tahmini Tarih</label>
+            @Html.TextBoxFor(k => k.TahminiTarih, "{0: dd.MM.yyyy}", new { @class = "form-control" })
+            <br />
+            <label>Gerçekleşen Tarih</label>
+            @Html.TextBoxFor(k => k.GerceklesenTarih, "{0: dd.MM.yyyy}", new { @class = "form-control" })
+            <br />
+            <label>Durum </label>
+            @Html.DropDownListFor(k => k.tbl_Durum.DurumId, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+            <div style="margin-top:15px">
+                <a href="/Gorev/Index/">
+                    <input type="submit" class="btn btn-info" value="Ekle">
+                </a>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
